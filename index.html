@@ -1,178 +1,95 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dronix Privacy Policy</title>
-<style>
-  :root {
-    --bg: #ffffff; --fg: #1d1b26; --muted: #5d5a6b; --accent: #6a3fb5;
-    --line: #e4e0ee; --mark: #fff0a6; --box: #f6f3fc;
-  }
-  @media (prefers-color-scheme: dark) {
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SchizoGames</title>
+  <meta name="description" content="SchizoGames makes small, colourful mobile games for Android: Bobbles and Dronix.">
+  <!-- Root of fenjas.github.io. app-ads.txt sits next to this file; keep it there. -->
+  <style>
     :root {
-      --bg: #16121f; --fg: #ece9f5; --muted: #a9a4ba; --accent: #b99cff;
-      --line: #322b45; --mark: #5a4b00; --box: #1f1930;
+      --bg: #f6f4fb; --fg: #1d1b26; --muted: #5d5a6b; --card: #ffffff; --line: #e4e0ee;
+      --accent: #6a3fb5; --btn: #1d1b26; --btn-fg: #ffffff;
     }
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--fg);
-    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
-  main { max-width: 720px; margin: 0 auto; padding: 32px 20px 72px; }
-  h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 4px; }
-  h2 { font-size: 1.2rem; margin: 2.2rem 0 .4rem; color: var(--accent); }
-  p, li { margin: .5rem 0; }
-  ul { padding-left: 1.2rem; }
-  a { color: var(--accent); }
-  .meta { color: var(--muted); margin: 0 0 1.5rem; }
-  .summary {
-    background: var(--box); border: 1px solid var(--line); border-radius: 12px;
-    padding: 14px 18px; margin: 1.2rem 0;
-  }
-  .summary p { margin: .35rem 0; }
-  mark { background: var(--mark); color: inherit; padding: 0 .25em; border-radius: 4px; }
-  .draft-note {
-    border: 2px dashed #c98a00; border-radius: 12px; padding: 12px 16px;
-    margin: 0 0 1.6rem; font-size: .95rem;
-  }
-  footer { margin-top: 3rem; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 1rem; }
-</style>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #100d18; --fg: #ece9f5; --muted: #a9a4ba; --card: #1b1628; --line: #2e2742;
+        --accent: #b99cff; --btn: #ece9f5; --btn-fg: #100d18;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--fg);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
+    header h1 { font-size: 2.4rem; line-height: 1.1; margin: 0 0 8px; letter-spacing: -0.02em; }
+    header p { margin: 0 0 36px; color: var(--muted); font-size: 1.1rem; }
+    .games { display: grid; gap: 18px; }
+    .game {
+      display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: center;
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px;
+    }
+    .game img { width: 96px; height: 96px; border-radius: 22px; display: block; }
+    .game h2 { margin: 0 0 4px; font-size: 1.3rem; }
+    .game p { margin: 0 0 12px; color: var(--muted); }
+    .links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .play {
+      display: inline-block; padding: 8px 14px; border-radius: 999px; text-decoration: none;
+      background: var(--btn); color: var(--btn-fg); font-weight: 600; font-size: 0.95rem;
+    }
+    .soon {
+      display: inline-block; padding: 8px 14px; border-radius: 999px; font-weight: 600;
+      font-size: 0.95rem; border: 1px dashed var(--line); color: var(--muted);
+    }
+    .links a.policy { color: var(--accent); font-size: 0.95rem; }
+    footer { margin-top: 40px; color: var(--muted); font-size: 0.95rem; }
+    footer a { color: var(--accent); }
+    @media (max-width: 480px) {
+      .game { grid-template-columns: 72px 1fr; gap: 14px; }
+      .game img { width: 72px; height: 72px; border-radius: 16px; }
+    }
+  </style>
 </head>
 <body>
 <main>
+  <header>
+    <h1>SchizoGames</h1>
+    <p>Small, colourful games for Android, made in Malta.</p>
+  </header>
 
-  <h1>Dronix Privacy Policy</h1>
-  <p class="meta">Last updated: 31 October 2026</p>
+  <section class="games">
+    <article class="game">
+      <img src="bobbles-icon.png" alt="Bobbles app icon">
+      <div>
+        <h2>Bobbles</h2>
+        <p>Drop, merge and match googly-eyed Bobbles in a bouncy physics puzzle.</p>
+        <div class="links">
+          <a class="play" href="https://play.google.com/store/apps/details?id=com.schizogames.bobbles">Get it on Google Play</a>
+          <a class="policy" href="https://fenjas.github.io/Bobbles/">Privacy policy</a>
+        </div>
+      </div>
+    </article>
 
-  <p>
-    Dronix (the "Game") is made by SchizoTroll Games ("we", "us"). This policy explains what information is
-    collected when you play the Game on an Android device, who collects it, and what choices you have.
-  </p>
-
-  <div class="summary">
-    <p><strong>In short</strong></p>
-    <p>We don't ask you to create an account, and we don't ask for your name, email address or phone number.</p>
-    <p>Your progress, scores and settings are saved only on your device.</p>
-    <p>The Game shows ads provided by Google AdMob, which may collect device information to serve and measure ads.</p>
-    <p>The Game has no in-app purchases.</p>
-  </div>
-
-  <h2>1. Who is responsible</h2>
-  <p>
-    SchizoTroll Games, operated by Jason Fenech, Malta.<br>
-    Contact: <a href="mailto:schizogamessupport@gmail.com">schizogamessupport@gmail.com</a>
-  </p>
-
-  <h2>2. Information stored on your device</h2>
-  <p>The Game saves a few things locally, on your phone only:</p>
-  <ul>
-    <li>which levels you have unlocked, your stars and your best scores,</li>
-    <li>your best Endless-mode wave and score,</li>
-    <li>your sound, music and vibration settings,</li>
-    <li>your consent choices for ads (stored by Google's consent tool).</li>
-  </ul>
-  <p>This data is deleted when you uninstall the Game or clear its data in your phone's settings.</p>
-
-  <h2>3. Information collected by our service providers</h2>
-
-  <p><strong>Advertising (Google AdMob).</strong> The Game uses Google AdMob to show ads. When ads are requested
-    or shown, Google and its advertising partners may automatically collect information such as your device's
-    advertising ID, IP address, approximate location derived from your IP address, device and operating-system
-    details, app and ad interactions (for example, ad impressions and taps), and diagnostics. This is used to
-    deliver, measure and personalise ads, to prevent fraud and abuse, and to keep the service secure. We do not
-    receive this information in a form that identifies you. See
-    <a href="https://policies.google.com/technologies/partner-sites">how Google uses information from apps that use its services</a>
-    and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</p>
-
-  <!-- If you add Firebase Analytics, Crashlytics, in-app purchases or any other service later, add a paragraph for it here. -->
-
-  <h2>4. How we use information</h2>
-  <ul>
-    <li>to run the Game and remember your progress and settings,</li>
-    <li>to show ads, which helps keep the Game free,</li>
-    <li>to respond if you contact us.</li>
-  </ul>
-  <p>We do not sell personal information, and we do not build advertising profiles ourselves.</p>
-
-  <h2>5. Consent and your ad choices</h2>
-  <ul>
-    <li><strong>EEA, UK and Switzerland:</strong> where the law requires it, the Game asks for your consent
-      before ads that use your information are shown. It uses Google's consent message for this. You can change
-      your choice at any time with the "PRIVACY" button in the Game's main menu, which appears where
-      consent applies.</li>
-    <li><strong>On your device:</strong> you can reset your advertising ID or opt out of ad personalisation in your
-      Android settings, usually under Settings, then Google, then Ads.</li>
-    <li><strong>Optional ads:</strong> ads that give you a reward (for example, continuing after defeat or doubling
-      a level score) are only shown when you choose to watch them.</li>
-  </ul>
-
-  <h2>6. Legal bases (EEA and UK users)</h2>
-  <p>
-    We rely on your <strong>consent</strong> for personalised advertising and for storing or accessing
-    information on your device for ads, and on our <strong>legitimate interests</strong> in keeping the Game
-    working, secure and free from fraud. You can withdraw consent at any time, as described above.
-  </p>
-
-  <h2>7. Sharing and international transfers</h2>
-  <p>
-    We share nothing about you ourselves, because we don't collect personal information. Google and its
-    partners, acting as described in section 3, may process information in countries outside your own, including
-    outside the EEA and UK, using the safeguards described in their policies.
-  </p>
-
-  <h2>8. How long information is kept</h2>
-  <p>
-    Local data stays on your device until you remove it. Information collected by Google is kept according to
-    Google's own retention policies.
-  </p>
-
-  <h2>9. Children</h2>
-  <p>
-    The Game is not directed at children under 13 (or the higher age set by the law where you live), and we do
-    not knowingly collect personal information from children. If you believe a child has provided us with
-    personal information, please contact us at the email address above.
-  </p>
-
-  <h2>10. Your rights</h2>
-  <p>
-    Depending on where you live, you may have the right to access, correct or delete your personal information,
-    to restrict or object to its use, to receive a copy of it, and to withdraw consent. Because we don't hold
-    personal information about you, most requests about advertising data are best made to Google through your
-    Google Account's privacy controls. You can also contact us, and we will help where we can.
-  </p>
-  <p>
-    You also have the right to complain to your local data protection authority. In Malta this is the Information and Data Protection Commissioner (<a href="https://idpc.org.mt">idpc.org.mt</a>).
-  </p>
-  <p>
-    Residents of some US states, such as California, have additional rights. We do not sell personal information
-    as defined by those laws. You can contact us with any request.
-  </p>
-
-  <h2>11. Security</h2>
-  <p>
-    We keep what little data the Game stores on your device, and we choose an established provider for ads.
-    No method of electronic storage or transmission is completely secure, so we can't guarantee absolute security.
-  </p>
-
-  <h2>12. Changes to this policy</h2>
-  <p>
-    We may update this policy, for example if the Game adds new features or services. The "Last updated" date at
-    the top shows when it last changed. If a change is significant, we will say so in the Game or on the store
-    page.
-  </p>
-
-  <h2>13. Contact</h2>
-  <p>
-    Questions or requests: <a href="mailto:schizogamessupport@gmail.com">schizogamessupport@gmail.com</a>
-  </p>
+    <article class="game">
+      <img src="dronix-icon.png" alt="Dronix app icon">
+      <div>
+        <h2>Dronix</h2>
+        <p>Shift colours, absorb enemy fire and blast neon drone swarms in a one-thumb arcade shooter.</p>
+        <div class="links">
+          <!-- When Dronix is live, replace the span below with:
+               <a class="play" href="https://play.google.com/store/apps/details?id=com.schizogames.dronix">Get it on Google Play</a> -->
+          <span class="soon">Coming soon to Google Play</span>
+          <a class="policy" href="https://fenjas.github.io/Dronix/">Privacy policy</a>
+        </div>
+      </div>
+    </article>
+  </section>
 
   <footer>
-    &copy; 2026 SchizoTroll Games. Dronix is a trademark of its owner. Google, AdMob and Google Play are
-    trademarks of Google LLC.
+    <p>Questions or feedback: <a href="mailto:schizogamessupport@gmail.com">schizogamessupport@gmail.com</a></p>
+    <p>&copy; 2026 SchizoGames. Google Play is a trademark of Google LLC.</p>
   </footer>
-
 </main>
 </body>
 </html>
