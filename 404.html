@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found | SchizoTroll Games</title>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // Old URLs still in the wild (e.g. Dronix's Play privacy link https://fenjas.github.io/Dronix/).
+    // Paths are case-sensitive on GitHub Pages; a Dronix/ folder can't sit next to dronix/ on Windows.
+    var moved = { "/dronix": "/privacy/dronix/", "/bobbles/privacy": "/privacy/bobbles/" };
+    var p = location.pathname.replace(/\/+$/, "");
+    if (/^\/Dronix$/.test(p)) location.replace("/privacy/dronix/");
+    else if (moved[p.toLowerCase()] && p !== p.toLowerCase()) location.replace(moved[p.toLowerCase()]);
+  </script>
+</head>
+<body>
+<header class="hero">
+  <h1>Page not found</h1>
+  <p>That page doesn't exist, but our games do.</p>
+  <div class="links" style="justify-content:center"><a class="play" href="/">See all games</a></div>
+</header>
+</body>
+</html>
