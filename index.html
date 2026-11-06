@@ -80,6 +80,8 @@
       scroll-snap-align: start; border: 1px solid var(--line); background: var(--line);
     }
 
+    .shots.wide img { width: 320px; aspect-ratio: 16 / 9; }   /* landscape games */
+
     footer { max-width: 880px; margin: 0 auto; padding: 0 20px 48px; color: var(--muted); font-size: 0.95rem; }
     @media (max-width: 520px) {
       .game { padding: 18px; }
@@ -87,6 +89,7 @@
       .game-head img { width: 72px; height: 72px; border-radius: 16px; }
       .shots { margin: 16px -18px 0; padding: 0 18px 8px; }
       .shots img { width: 140px; }
+      .shots.wide img { width: 260px; }
     }
   </style>
 </head>
@@ -174,6 +177,21 @@
             <a class="policy" href="privacy/doxie-larry/">Privacy policy</a>
           </div>
         </div>
+      </div>
+      <!-- Unlisted trailer for now; at launch this can become the Doxie Larry playlist (videoseries?list=...). -->
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/Lp0-b11miVc" title="The Adventures Of Doxie Larry trailer" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="shots wide" aria-label="Doxie Larry screenshots">
+        <img src="images/doxie-larry/01.jpg" alt="Stretch across gaps" loading="lazy">
+        <img src="images/doxie-larry/02.jpg" alt="Parachute down" loading="lazy">
+        <img src="images/doxie-larry/03.jpg" alt="Off to the beach" loading="lazy">
+        <img src="images/doxie-larry/04.jpg" alt="Into the city" loading="lazy">
+        <img src="images/doxie-larry/05.jpg" alt="Sun-baked canyons" loading="lazy">
+        <img src="images/doxie-larry/06.jpg" alt="Misty forests" loading="lazy">
+        <img src="images/doxie-larry/07.jpg" alt="Under the northern lights" loading="lazy">
+        <img src="images/doxie-larry/08.jpg" alt="100 levels, 20 scenes" loading="lazy">
       </div>
     </article>
   </section>
