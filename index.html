@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SchizoTroll Games</title>
   <meta name="description" content="SchizoTroll Games makes small, colourful mobile games for Android: Bobbles, Dronix and The Adventures Of Doxie Larry.">
+  <meta property="og:title" content="SchizoTroll Games">
+  <meta property="og:description" content="Small, colourful games for Android, made in Malta.">
+  <meta property="og:image" content="https://fenjas.github.io/images/bobbles/01.jpg">
   <!-- Root of fenjas.github.io. app-ads.txt sits next to this file; keep it there. -->
   <style>
     :root {
       --bg: #f6f4fb; --fg: #1d1b26; --muted: #5d5a6b; --card: #ffffff; --line: #e4e0ee;
-      --accent: #6a3fb5; --btn: #1d1b26; --btn-fg: #ffffff;
+      --accent: #6a3fb5; --btn: #1d1b26; --btn-fg: #ffffff; --chip: #efe9fb;
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --bg: #100d18; --fg: #ece9f5; --muted: #a9a4ba; --card: #1b1628; --line: #2e2742;
-        --accent: #b99cff; --btn: #ece9f5; --btn-fg: #100d18;
+        --accent: #b99cff; --btn: #ece9f5; --btn-fg: #100d18; --chip: #2a2145;
       }
     }
     * { box-sizing: border-box; }
@@ -22,17 +25,38 @@
       margin: 0; background: var(--bg); color: var(--fg);
       font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     }
-    main { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
-    header h1 { font-size: 2.4rem; line-height: 1.1; margin: 0 0 8px; letter-spacing: -0.02em; }
-    header p { margin: 0 0 36px; color: var(--muted); font-size: 1.1rem; }
-    .games { display: grid; gap: 18px; }
-    .game {
-      display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: center;
-      background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 18px;
+    a { color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      color: #fff; text-align: center; padding: 64px 20px 56px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(0,229,255,.35), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(255,43,214,.35), transparent 42%),
+        radial-gradient(circle at 50% 100%, rgba(255,194,61,.30), transparent 45%),
+        linear-gradient(160deg, #2a0d55, #120726 60%, #05020f);
     }
-    .game img { width: 96px; height: 96px; border-radius: 22px; display: block; }
-    .game h2 { margin: 0 0 4px; font-size: 1.3rem; }
+    .hero h1 { margin: 0 0 8px; font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1.05; letter-spacing: -0.02em; }
+    .hero p { margin: 0 auto 24px; max-width: 520px; color: #d9d2ee; font-size: 1.1rem; }
+    .social { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social a {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+      color: #fff; text-decoration: none; font-weight: 600; font-size: .95rem;
+    }
+    .social a:hover { background: rgba(255,255,255,.22); }
+    .social svg { width: 18px; height: 18px; fill: currentColor; }
+
+    main { max-width: 880px; margin: 0 auto; padding: 40px 20px 64px; }
+    .games { display: grid; gap: 28px; }
+    .game { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px; min-width: 0; }
+    .game-head > div { min-width: 0; }
+    .game-head { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: center; }
+    .game-head img { width: 96px; height: 96px; border-radius: 22px; display: block; }
+    .game h2 { margin: 0 0 4px; font-size: 1.4rem; }
     .game p { margin: 0 0 12px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+    .tags li { background: var(--chip); color: var(--accent); font-size: .8rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; }
     .links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .play {
       display: inline-block; padding: 8px 14px; border-radius: 999px; text-decoration: none;
@@ -42,68 +66,122 @@
       display: inline-block; padding: 8px 14px; border-radius: 999px; font-weight: 600;
       font-size: 0.95rem; border: 1px dashed var(--line); color: var(--muted);
     }
-    .links a.policy { color: var(--accent); font-size: 0.95rem; }
-    footer { margin-top: 40px; color: var(--muted); font-size: 0.95rem; }
-    footer a { color: var(--accent); }
-    @media (max-width: 480px) {
-      .game { grid-template-columns: 72px 1fr; gap: 14px; }
-      .game img { width: 72px; height: 72px; border-radius: 16px; }
+    .links a.policy { font-size: 0.95rem; }
+
+    /* Media */
+    .video { margin-top: 18px; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; }
+    .video iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .shots {
+      display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
+      margin: 18px -22px 0; padding: 0 22px 8px; scrollbar-width: thin;
+    }
+    .shots img {
+      flex: 0 0 auto; width: 170px; aspect-ratio: 9 / 16; height: auto; border-radius: 12px;
+      scroll-snap-align: start; border: 1px solid var(--line); background: var(--line);
+    }
+
+    footer { max-width: 880px; margin: 0 auto; padding: 0 20px 48px; color: var(--muted); font-size: 0.95rem; }
+    @media (max-width: 520px) {
+      .game { padding: 18px; }
+      .game-head { grid-template-columns: 72px 1fr; gap: 14px; }
+      .game-head img { width: 72px; height: 72px; border-radius: 16px; }
+      .shots { margin: 16px -18px 0; padding: 0 18px 8px; }
+      .shots img { width: 140px; }
     }
   </style>
 </head>
 <body>
+<header class="hero">
+  <h1>SchizoTroll Games</h1>
+  <p>Small, colourful games for Android, made in Malta.</p>
+  <nav class="social" aria-label="Follow SchizoTroll Games">
+    <a href="https://www.youtube.com/channel/UCS2I2NZAC10F2k9D2aOk0jg">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.8a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.8 15.1V8.9l5.4 3.1-5.4 3.1Z"/></svg>
+      YouTube</a>
+    <a href="https://www.tiktok.com/@schizotrollgames">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2.9-2.9c.3 0 .6 0 .9.1V9a6.3 6.3 0 1 0 5.3 6.2V8.6a7.6 7.6 0 0 0 4.4 1.4V6.7a4.4 4.4 0 0 1-4.4-4.4V2Z"/></svg>
+      TikTok</a>
+  </nav>
+</header>
+
 <main>
-  <header>
-    <h1>SchizoTroll Games</h1>
-    <p>Small, colourful games for Android, made in Malta.</p>
-  </header>
-
   <section class="games">
-    <article class="game">
-      <img src="bobbles-icon.png" alt="Bobbles app icon">
-      <div>
-        <h2>Bobbles</h2>
-        <p>Drop, merge and match googly-eyed Bobbles in a bouncy physics puzzle.</p>
-        <div class="links">
-          <a class="play" href="https://play.google.com/store/apps/details?id=com.schizogames.bobbles">Get it on Google Play</a>
-          <a class="policy" href="privacy/bobbles/">Privacy policy</a>
+    <article class="game" id="bobbles">
+      <div class="game-head">
+        <img src="bobbles-icon.png" alt="Bobbles app icon">
+        <div>
+          <h2>Bobbles</h2>
+          <p>Drop, merge and match googly-eyed Bobbles in a bouncy physics puzzle. Summon rare hybrids, chain combos and launch paper planes when the jar fills up.</p>
+          <ul class="tags"><li>Puzzle</li><li>Merge</li><li>Physics</li><li>Plays offline</li></ul>
+          <div class="links">
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.schizogames.bobbles">Get it on Google Play</a>
+            <a class="policy" href="privacy/bobbles/">Privacy policy</a>
+          </div>
         </div>
+      </div>
+      <div class="video">
+        <iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=PLAaZkEeCoR0A" title="Bobbles videos" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="shots" aria-label="Bobbles screenshots">
+        <img src="images/bobbles/01.jpg" alt="Drop, bounce and merge Bobbles" loading="lazy">
+        <img src="images/bobbles/02.jpg" alt="Summon rare hybrids" loading="lazy">
+        <img src="images/bobbles/03.jpg" alt="Chain huge combos" loading="lazy">
+        <img src="images/bobbles/04.jpg" alt="Paper planes to the rescue" loading="lazy">
+        <img src="images/bobbles/05.jpg" alt="Grow them bigger" loading="lazy">
+        <img src="images/bobbles/06.jpg" alt="Meet the Bobbles" loading="lazy">
+        <img src="images/bobbles/07.jpg" alt="Play your way" loading="lazy">
       </div>
     </article>
 
-    <article class="game">
-      <img src="dronix-icon.png" alt="Dronix app icon">
-      <div>
-        <h2>Dronix</h2>
-        <p>Shift colours, absorb enemy fire and blast neon drone swarms in a one-thumb arcade shooter.</p>
-        <div class="links">
-          <!-- When Dronix is live, replace the span below with:
-               <a class="play" href="https://play.google.com/store/apps/details?id=com.schizogames.dronix">Get it on Google Play</a> -->
-          <span class="soon">Coming soon to Google Play</span>
-          <a class="policy" href="privacy/dronix/">Privacy policy</a>
+    <article class="game" id="dronix">
+      <div class="game-head">
+        <img src="dronix-icon.png" alt="Dronix app icon">
+        <div>
+          <h2>Dronix</h2>
+          <p>Shift colours, absorb enemy fire and blast neon drone swarms in a one-thumb arcade shooter. Chain combos up to x8, unleash Overdrive and take down guardian bosses.</p>
+          <ul class="tags"><li>Arcade</li><li>Shooter</li><li>30 levels + Endless</li><li>Plays offline</li></ul>
+          <div class="links">
+            <!-- When Dronix is live, replace the span below with:
+                 <a class="play" href="https://play.google.com/store/apps/details?id=com.schizogames.dronix">Get it on Google Play</a>
+                 and add a video block like Bobbles' (Dronix playlist). -->
+            <span class="soon">Coming soon to Google Play</span>
+            <a class="policy" href="privacy/dronix/">Privacy policy</a>
+          </div>
         </div>
+      </div>
+      <div class="shots" aria-label="Dronix screenshots">
+        <img src="images/dronix/01.jpg" alt="Shift, absorb, blast" loading="lazy">
+        <img src="images/dronix/02.jpg" alt="Chain x8" loading="lazy">
+        <img src="images/dronix/03.jpg" alt="Guardian bosses" loading="lazy">
+        <img src="images/dronix/04.jpg" alt="Endless mode" loading="lazy">
+        <img src="images/dronix/05.jpg" alt="One thumb to play" loading="lazy">
+        <img src="images/dronix/06.jpg" alt="30 levels, 6 sectors" loading="lazy">
       </div>
     </article>
 
-    <article class="game">
-      <img src="doxielarry-icon.png" alt="The Adventures Of Doxie Larry app icon">
-      <div>
-        <h2>The Adventures Of Doxie Larry</h2>
-        <p>Stretch, jump and parachute a real-life sausage dog through 100 cheerful levels. No ads, ever.</p>
-        <div class="links">
-          <!-- When Doxie Larry is live, replace the span below with:
-               <a class="play" href="https://play.google.com/store/apps/details?id=com.schizotrollgames.doxielarry">Get it on Google Play</a> -->
-          <span class="soon">Coming soon to Google Play</span>
-          <a class="policy" href="privacy/doxie-larry/">Privacy policy</a>
+    <article class="game" id="doxie-larry">
+      <div class="game-head">
+        <img src="doxielarry-icon.png" alt="The Adventures Of Doxie Larry app icon">
+        <div>
+          <h2>The Adventures Of Doxie Larry</h2>
+          <p>Stretch, jump and parachute a real-life sausage dog through 100 cheerful levels. No ads, ever.</p>
+          <ul class="tags"><li>Platformer</li><li>100 levels</li><li>No ads</li></ul>
+          <div class="links">
+            <!-- When Doxie Larry is live, replace the span below with:
+                 <a class="play" href="https://play.google.com/store/apps/details?id=com.schizotrollgames.doxielarry">Get it on Google Play</a> -->
+            <span class="soon">Coming soon to Google Play</span>
+            <a class="policy" href="privacy/doxie-larry/">Privacy policy</a>
+          </div>
         </div>
       </div>
     </article>
   </section>
-
-  <footer>
-    <p>Questions or feedback: <a href="mailto:schizogamessupport@gmail.com">schizogamessupport@gmail.com</a></p>
-    <p>&copy; 2026 SchizoTroll Games. Google Play is a trademark of Google LLC.</p>
-  </footer>
 </main>
+
+<footer>
+  <p>Questions or feedback: <a href="mailto:schizogamessupport@gmail.com">schizogamessupport@gmail.com</a></p>
+  <p>&copy; 2026 SchizoTroll Games. Google Play is a trademark of Google LLC.</p>
+</footer>
 </body>
 </html>
