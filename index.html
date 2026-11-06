@@ -81,6 +81,7 @@
     }
 
     .shots.wide img { width: 320px; aspect-ratio: 16 / 9; }   /* landscape games */
+    .video.tall { aspect-ratio: 9 / 16; max-width: 340px; margin-left: auto; margin-right: auto; }   /* vertical trailers */
 
     footer { max-width: 880px; margin: 0 auto; padding: 0 20px 48px; color: var(--muted); font-size: 0.95rem; }
     @media (max-width: 520px) {
@@ -152,6 +153,11 @@
             <a class="policy" href="privacy/dronix/">Privacy policy</a>
           </div>
         </div>
+      </div>
+      <!-- Unlisted vertical trailer for now; at launch this can become the Dronix playlist (16:9 videos, drop the "tall" class). -->
+      <div class="video tall">
+        <iframe src="https://www.youtube-nocookie.com/embed/ZPdxnRP7MH4" title="Dronix trailer" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="shots" aria-label="Dronix screenshots">
         <img src="images/dronix/01.jpg" alt="Shift, absorb, blast" loading="lazy">
