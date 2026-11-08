@@ -11,6 +11,8 @@
     var moved = { "/dronix": "/privacy/dronix/", "/bobbles/privacy": "/privacy/bobbles/" };
     var p = location.pathname.replace(/\/+$/, "");
     if (/^\/Dronix$/.test(p)) location.replace("/privacy/dronix/");
+    // Doxie Larry 1.0.0 (version code 2) links to the old privacy repo's address.
+    else if (p.toLowerCase() === "/doxie-larry-site") location.replace("/privacy/doxie-larry/");
     else if (moved[p.toLowerCase()] && p !== p.toLowerCase()) location.replace(moved[p.toLowerCase()]);
   </script>
 </head>
